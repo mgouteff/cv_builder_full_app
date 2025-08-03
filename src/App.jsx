@@ -2,12 +2,12 @@
 // Full version for CV Builder with debugging logs and persistent data across steps
 
 import React, { useState } from 'react';
-import PersonalInfoForm from './components/PersonalInfoForm';
-import WorkExperienceForm from './components/WorkExperienceForm';
-import EducationForm from './components/EducationForm';
-import SkillsForm from './components/SkillsForm';
-import LanguagesForm from './components/LanguagesForm';
-import FinalReview from './components/FinalReview';
+import PersonalInfoForm from './src/components/PersonalInfoForm';
+import WorkExperienceForm from './src/components/WorkExperienceForm';
+import EducationForm from './src/components/EducationForm';
+import SkillsForm from './src/components/SkillsForm';
+import LanguagesForm from './src/components/LanguagesForm';
+import FinalReview from './src/components/FinalReview';
 
 const App = () => {
   // Initial data structure, flat fields and arrays for work experience, education, and languages

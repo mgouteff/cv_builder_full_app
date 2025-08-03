@@ -1,24 +1,53 @@
+// WorkExperienceForm.jsx
+// Handles user's work experience details.
+// Updated to use flat data structure and prevent blank screen errors.
+
 import React from 'react';
 
 const WorkExperienceForm = ({ data, onChange, nextStep, prevStep }) => {
-  const handleChange = (index, e) => {
-    const updated = [...data];
-    updated[index][e.target.name] = e.target.value;
-    onChange(updated);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log("Updating Work Experience field:", name, "with value:", value);
+    onChange({
+      ...data,
+      [name]: value,
+    });
   };
 
   return (
     <div>
       <h2>Work Experience</h2>
-      {data.map((job, index) => (
-        <div key={index}>
-          <input name="jobTitle" placeholder="Job Title" value={job.jobTitle} onChange={(e) => handleChange(index, e)} />
-          <input name="company" placeholder="Company" value={job.company} onChange={(e) => handleChange(index, e)} />
-          <input name="startDate" placeholder="Start Date" value={job.startDate} onChange={(e) => handleChange(index, e)} />
-          <input name="endDate" placeholder="End Date" value={job.endDate} onChange={(e) => handleChange(index, e)} />
-          <textarea name="responsibilities" placeholder="Responsibilities" value={job.responsibilities} onChange={(e) => handleChange(index, e)} />
-        </div>
-      ))}
+      <input
+        name="jobTitle"
+        placeholder="Job Title"
+        value={data.jobTitle || ''}
+        onChange={handleChange}
+      />
+      <input
+        name="company"
+        placeholder="Company"
+        value={data.company || ''}
+        onChange={handleChange}
+      />
+      <input
+        name="startDate"
+        placeholder="Start Date"
+        value={data.startDate || ''}
+        onChange={handleChange}
+      />
+      <input
+        name="endDate"
+        placeholder="End Date"
+        value={data.endDate || ''}
+        onChange={handleChange}
+      />
+      <textarea
+        name="responsibilities"
+        placeholder="Responsibilities"
+        value={data.responsibilities || ''}
+        onChange={handleChange}
+      />
       <button onClick={prevStep}>Back</button>
       <button onClick={nextStep}>Next</button>
     </div>
